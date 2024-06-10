@@ -2,7 +2,7 @@ POST http://localhost:8080/create
 Content-Type: application/json
 
 {
-    "title": "ejercicio 1",
+    "title": "hola junio",
     "completed": false
 
 }

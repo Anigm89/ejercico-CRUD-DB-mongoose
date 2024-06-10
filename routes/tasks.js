@@ -37,7 +37,9 @@ router.get('/id/:_id', async (req, res) => {
         if (!tasksId) {
             return res.status(404).json({ mensaje: 'Tarea no encontrada' });
         }
-        res.json(tasksId)
+        res.send(tasksId)
+//        res.json(tasksId)
+
     }
     catch(error){
         console.error(error);
@@ -78,7 +80,9 @@ router.put('/id/:_id', async (req, res) => {
 router.delete('/id/:_id', async (req, res) =>{
     try{
         const id = req.params['_id'];
-        const deleteTask = await Task.deleteOne({ _id: id });
+        //const deleteTask = await Task.deleteOne({ _id: id });
+        const deleteTask = await Task.findByIdAndDelete(id);
+
         if(!deleteTask){
             return res.status(404).send({mensaje: 'Tarea no encontrada'})
         }

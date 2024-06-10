@@ -3,13 +3,12 @@ const app = express();
 const PORT = 8080;
 
 const {dbConnection} = require('./config/config');
-const routes = require('./routes');
+const taskRoutes = require('./routes/tasks')
 
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); //para que req.body no sea undefined
 
-app.use('/', routes);
+app.use('/', taskRoutes);
 
 dbConnection();
 
